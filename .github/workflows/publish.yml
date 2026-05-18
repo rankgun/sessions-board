@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -29,11 +31,13 @@ jobs:
       - name: Compile Roblox Ts 
         run: npx rbxtsc --rojo build.project.json 
       
-      - name: Build for Produciton  
+      - name: Build  
         run: rojo build build.project.json -o build.rbxl
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Rename build
+        run: mv build.rbxl sessions-board-${{ github.event.release.tag_name }}.rbxl
+
+      - name: Attach build to release
+        uses: softprops/action-gh-release@v2
         with:
-          name: game
-          path: build.rbxl
+          files: sessions-board-*.rbxl
