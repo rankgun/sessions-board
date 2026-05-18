@@ -1,3 +1,5 @@
+> Relevant rankgun marketplace post: https://www.rankgun.works/marketplace/rankgun-sessions-board-mpbrfuiq
+
 # Rankgun Sessions Board
 
 This is a sessions board designed to be added to your roblox game built with [RobloxTs](https://roblox-ts.com/) & [Rankgun](https://rankgun.works/). Download the latest version from the releases tab or from the roblox model list. 
