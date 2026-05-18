@@ -1,0 +1,39 @@
+name: Build Produciton Release
+
+on:
+  release:
+    branches: [main]
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Rojo
+        run: cargo install rojo --version 7.7.0-rc.1
+
+      - name: Install dependencies
+        run: npm i 
+
+      - name: Compile Roblox Ts 
+        run: npx rbxtsc --rojo build.project.json 
+      
+      - name: Build for Produciton  
+        run: rojo build build.project.json -o build.rbxl
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: game
+          path: build.rbxl

@@ -1,0 +1,29 @@
+{
+    "name": "SessionsBoard",
+    "tree": {
+        "$className": "Folder",
+        "ServerScriptService": {
+            "$className": "ServerScriptService",
+            "sessions-board": {
+                "$path": "out/ServerScriptService",
+                "include": {
+                    "$path": "include",
+                    "$className": "Folder",
+                    "node_modules": {
+                        "$className": "Folder",
+                        "@rbxts": {
+                            "$path": "node_modules/@rbxts"
+                        }
+                    }
+                },
+                "sessions_board": {
+                    "$path": "out/Workspace/sessions_board.rbxm"
+                }
+            }
+        }
+    },
+    "globIgnorePaths": [
+        "**/package.json",
+        "**/tsconfig.json"
+    ]
+}
