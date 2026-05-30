@@ -41,7 +41,12 @@ To build a version that keeps the project more compact:
 
 ## Sync roblox project to support fully managed rojo. 
 
-TODO. 
+TODO. Note to self: 
+
+Using ``7.7.0-rc.1`` run ``rojo syncback default.project.json --input game.rbxl``. 
+
+Run sync: ``npm run sync``. (Uses lune to generate src/services.d.ts) (Ref: [rbxts-build](https://github.com/osyrisrblx/rbxts-build))s
+
 
 ## Debugging 
 
